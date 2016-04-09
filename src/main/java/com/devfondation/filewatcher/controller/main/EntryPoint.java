@@ -11,8 +11,8 @@ import org.springframework.stereotype.Component;
 public class EntryPoint {
 
 
-    @Autowired
-    private IDirectoryWatcher directoryWatcher;
+//    @Autowired
+//    private IDirectoryWatcher directoryWatcher;
 
     public void startApplication()
     {
