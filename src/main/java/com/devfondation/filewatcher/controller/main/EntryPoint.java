@@ -1,22 +1,35 @@
 package com.devfondation.filewatcher.controller.main;
 
-import com.devfondation.filewatcher.service.fs.IDirectoryWatcher;
+import com.devfondation.filewatcher.controller.main.fs.DirectoryWatcher;
+import com.devfondation.filewatcher.service.config.IConfigReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by christopher on 09/04/16.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Component
 public class EntryPoint {
 
+    private final IConfigReader configReader;
+    private final List<DirectoryWatcher> listDirectoryWatcher = new ArrayList<>();
 
-//    @Autowired
-//    private IDirectoryWatcher directoryWatcher;
+    @Autowired
+    public EntryPoint(IConfigReader configReader) {
+        this.configReader = configReader;
+    }
 
     public void startApplication()
     {
-//        directoryWatcher.
+        List<String> listInputDirectory = configReader.getListInputDirectory();
+
+        for (String inputDirectory : listInputDirectory)
+        {
+            listDirectoryWatcher.add(new DirectoryWatcher(inputDirectory));
+        }
+
+
     }
 
 

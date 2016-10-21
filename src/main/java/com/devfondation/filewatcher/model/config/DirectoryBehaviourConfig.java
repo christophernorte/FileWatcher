@@ -1,6 +1,5 @@
-package com.devfondation.filewatcher.config;
+package com.devfondation.filewatcher.model.config;
 
-import java.beans.ConstructorProperties;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +7,10 @@ import java.util.List;
  * Created by christopher on 09/04/16.
  */
 public class DirectoryBehaviourConfig {
-    private List<String> ListInputDirectory = new ArrayList<String>();
+    private List<String> ListInputDirectory = new ArrayList();
 
     public List<String> getListInputDirectory() {
+
         return ListInputDirectory;
     }
 }
